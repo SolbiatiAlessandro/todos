@@ -1,15 +1,15 @@
-def parser( line ):
+def parseLine( line ):
     """ return (int) priority of the element, and (str) element """
     return int(line.split('"')[2][1:2]), line.split('"')[1] 
 
 def readElems():
     """
-    read elements from todos file using parser
+    read elements from todos file using parseLine
     """
     elems = []
     with open('/Users/alex/Desktop/Coding/PY/TODOT/todos','r+') as f:
         for line in f:
-            priority, element = parser( line )
+            priority, element = parseLine( line )
             elems.append( ( priority, element ) )
             #import pdb;pdb.set_trace()
         elems.sort( key = lambda x : x[0] )
@@ -24,8 +24,19 @@ def todoDone():
     print("OK!")
 
 if __name__ == "__main__":
+    from argparse import ArgumentParser
+
+    parser = ArgumentParser()
+    parser.add_argument("done", 
+                        help="did you finish this?")
+
+    args = parser.parse_args()
     elems = readElems()
-    print elems[0][1]
+    #import pdb;pdb.set_trace()
+    if vars(args)['done'] == 'what':
+        print elems[0][1]
+    else:
+        todoDone()
 
 """
 ideas:
