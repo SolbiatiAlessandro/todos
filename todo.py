@@ -15,6 +15,14 @@ def readElems():
         elems.sort( key = lambda x : x[0] )
     return elems
 
+def todoDone():
+
+    elems = readElems()
+    with open('/Users/alex/Desktop/Coding/PY/TODOT/todos','w') as f:
+        for i in xrange(1,len(elems)):
+            f.write('"{}" {}\n'.format( elems[i][1], elems[i][0] ) )
+    print("OK!")
+
 if __name__ == "__main__":
     elems = readElems()
     print elems[0][1]
