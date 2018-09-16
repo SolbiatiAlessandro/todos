@@ -1,5 +1,6 @@
 def parseLine( line ):
     """ return (int) priority of the element, and (str) element """
+    #TODO implement double digit priority number
     return int(line.split('"')[2][1:2]), line.split('"')[1] 
 
 def readElems():
@@ -11,8 +12,8 @@ def readElems():
         for line in f:
             priority, element = parseLine( line )
             elems.append( ( priority, element ) )
-            #import pdb;pdb.set_trace()
-        elems.sort( key = lambda x : x[0] )
+        #import pdb;pdb.set_trace()
+        elems.sort( key = lambda x : x[0])
     return elems
 
 def todoDone():
