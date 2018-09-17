@@ -1,5 +1,7 @@
 import unittest
 import todo
+from os import path
+dir_path = path.dirname(path.realpath(__file__))
 
 class testTODO( unittest.TestCase ):
 
@@ -8,7 +10,7 @@ class testTODO( unittest.TestCase ):
 
     def test_todoDone( self ):
 
-        with open('/Users/alex/Desktop/Coding/PY/TODOT/todos','a') as f:
+        with open(dir_path+'/todos','a') as f:
             f.write('"[test elem]" 0')
            
         #import pdb;pdb.set_trace() 
