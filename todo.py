@@ -17,9 +17,10 @@ def readElems():
     return elems
 
 def todoDone():
-
+    from os import path
+    dir_path = path.dirname(path.realpath(__file__))
     elems = readElems()
-    with open('/Users/alex/Desktop/Coding/PY/TODOT/todos','w') as f:
+    with open(dir_path+'/todos','w') as f:
         for i in xrange(1,len(elems)):
             f.write('"{}" {}\n'.format( elems[i][1], elems[i][0] ) )
     print("OK!")
