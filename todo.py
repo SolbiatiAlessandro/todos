@@ -1,3 +1,6 @@
+from os import path
+dir_path = path.dirname(path.realpath(__file__))
+
 def parseLine( line ):
     """ return (int) priority of the element, and (str) element """
     #TODO implement double digit priority number
@@ -8,7 +11,7 @@ def readElems():
     read elements from todos file using parseLine
     """
     elems = []
-    with open('/Users/alex/Desktop/Coding/PY/TODOT/todos','r+') as f:
+    with open(dir_path+'/todos','r+') as f:
         for line in f:
             priority, element = parseLine( line )
             elems.append( ( priority, element ) )
@@ -17,8 +20,6 @@ def readElems():
     return elems
 
 def todoDone():
-    from os import path
-    dir_path = path.dirname(path.realpath(__file__))
     elems = readElems()
     with open(dir_path+'/todos','w') as f:
         for i in xrange(1,len(elems)):
