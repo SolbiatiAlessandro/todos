@@ -1,10 +1,20 @@
 pipeline {
   agent any
   stages {
-    stage('test') {
-      steps {
-        sh 'python test_todo.py'
-      }
-    }
+		stage('Test') {
+            agent {
+                docker {
+                    image 'qnib/pytest'
+                }
+            }
+            steps {
+                sh 'py.test --verbose --junit-xml test-reports/results.xml test_todo.py'
+            }
+            post {
+                always {
+                    junit 'test-reports/results.xml'
+                }
+            }
+        }
   }
 }
