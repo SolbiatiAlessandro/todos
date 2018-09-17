@@ -34,10 +34,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
     elems = readElems()
     #import pdb;pdb.set_trace()
-    if vars(args)['done'] == 'what':
-        print elems[0][1]
-    else:
+    if vars(args)['done'] == 'done':
         todoDone()
+    else:
+        print elems[0][1]
 
 """
 ideas:
