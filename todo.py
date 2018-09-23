@@ -6,6 +6,16 @@ def parseLine( line ):
     #TODO implement double digit priority number
     return int(line.split('"')[2][1:2]), line.split('"')[1] 
 
+def printDay():
+    ongoing = [
+            "2 leetcode/day",
+            "DAY GAME NIGHT GAME",
+            "skincare",
+            "meditation"
+            ]
+    for item in ongoing:
+        print item
+
 def readElems():
     """
     read elements from todos file using parseLine
@@ -31,15 +41,19 @@ if __name__ == "__main__":
 
     parser = ArgumentParser()
     parser.add_argument("done", 
-                        help="did you finish this?")
+                        help="did you finish this? [ 'done', 'day', '' ]")
 
     args = parser.parse_args()
     elems = readElems()
     #import pdb;pdb.set_trace()
+    print ""
     if vars(args)['done'] == 'done':
         todoDone()
+    if vars(args)['done'] == 'day':
+        printDay()
     else:
         print elems[0][1]
+    print ""
 
 """
 ideas:
