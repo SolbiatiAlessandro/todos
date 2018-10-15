@@ -59,5 +59,6 @@ if __name__ == "__main__":
 ideas:
     compute priority by deadline
     make it run when I start bash
+    set this thing up like a DAG with a top sort? Hardcore OOP
 """
 
